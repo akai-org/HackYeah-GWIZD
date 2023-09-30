@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import useSWR from 'swr';
 import { Text, View } from '../components/Themed';
@@ -10,22 +10,32 @@ import {
    IndexPath,
    Layout,
 } from '@ui-kitten/components';
+import { useGetAnimals } from '../services/hooks';
 
 export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
    const { t } = useTranslation();
+   const {animalsData, isAnimalsDataValidating} = useGetAnimals();
+
+   console.log(animalsData);
 
    return (
       <Layout style={styles.layout}>
-         <Toolbar title={t('info')} />
-
+         <Toolbar title={t('animals.home')} home />
          <View style={styles.container}>
-            <Text style={styles.title}>{t('info')}</Text>
-            <View
-               style={styles.separator}
-               lightColor="#eee"
-               darkColor="rgba(255,255,255,0.1)"
-            />
-         </View>
+         {isAnimalsDataValidating ? <View style={styles.spinner}>
+                        <ActivityIndicator color={globalStyle.light.primary} />
+                     </View> :
+
+        animalsData?.map((animal, index) => (
+            <View key={index}>
+               <Text>{animal.name}</Text>
+               <Text>{animal.description}</Text>
+               <Image
+                  source={{ uri: animal.image }}
+                  style={{ width: 300, height: 300, alignSelf: 'center' }} />
+            </View>))
+          }
+          </View>
       </Layout>
    );
 }

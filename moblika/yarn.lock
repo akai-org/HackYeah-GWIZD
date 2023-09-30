@@ -4153,6 +4153,18 @@
   dependencies:
     "fontfaceobserver" "^2.1.0"
 
+"expo-image-loader@~4.4.0":
+  "integrity" "sha512-dq88tiRB8aB1U+O/oJI7IY4VU9Nu2iDjEwR8QDfLtD4xWd5lNGoyic5Vh7911E1qNJFqNMSVIVzOD5l1SQ3A6g=="
+  "resolved" "https://registry.npmjs.org/expo-image-loader/-/expo-image-loader-4.4.0.tgz"
+  "version" "4.4.0"
+
+"expo-image-picker@^14.5.0":
+  "integrity" "sha512-9icvfQuWMdNKufFqu+FxenKcfybz9ior+XYQCIl/q5+mpHPo2tKq8I30vu2BjsOJ0Cfo7V4vMeN7a9F/3ooUfQ=="
+  "resolved" "https://registry.npmjs.org/expo-image-picker/-/expo-image-picker-14.5.0.tgz"
+  "version" "14.5.0"
+  dependencies:
+    "expo-image-loader" "~4.4.0"
+
 "expo-keep-awake@~12.3.0":
   "integrity" "sha512-ujiJg1p9EdCOYS05jh5PtUrfiZnK0yyLy+UewzqrjUqIT8eAGMQbkfOn3C3fHE7AKd5AefSMzJnS3lYZcZYHDw=="
   "resolved" "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-12.3.0.tgz"
@@ -7606,11 +7618,6 @@
     "invariant" "^2.2.4"
     "lodash" "^4.17.21"
     "prop-types" "^15.7.2"
-
-"react-native-image-picker@^7.0.0":
-  "integrity" "sha512-eiDj0mJUPivranQJX/pwkGf/Ar9QrQ+BF3y0D8frHU3S7U86IGOnOzHN7Wh6ofXEnafRij0TpmRCdrSebBMV+Q=="
-  "resolved" "https://registry.npmjs.org/react-native-image-picker/-/react-native-image-picker-7.0.0.tgz"
-  "version" "7.0.0"
 
 "react-native-image-viewing@^0.2.2":
   "integrity" "sha512-osWieG+p/d2NPbAyonOMubttajtYEYiRGQaJA54slFxZ69j1V4/dCmcrVQry47ktVKy8/qpFwCpW1eT6MH5T2Q=="

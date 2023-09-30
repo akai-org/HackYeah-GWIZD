@@ -35,25 +35,6 @@
       "passwordRule5": "Zawiera co najmniej jeden znak specjalny",
       "emailTaken": "Podany email jest już zajęty"
    },
-   "restaurants": {
-      "error": "Wystąpił błąd podczas pobierania danych.",
-      "filter": "Filtruj",
-      "hideFilters": "Ukryj filtry",
-      "name": "Nazwa",
-      "typeOfCuisine": "Rodzaj kuchni",
-      "priceRange": "Zakres cenowy",
-      "all": "Wszystkie",
-      "title": "Restauracje w pobliżu",
-      "tryAgain": "Spróbuj ponownie",
-      "resetFilters": "Resetuj filtry",
-      "noRestaurantsWithTheseFilters": "Brak restauracji spełniających wybrane filtry",
-      "map": "Mapa",
-      "menu": "Menu",
-      "photos": "Zdjęcia",
-      "noMenu": "To miejsce nie zamieściło jeszcze menu",
-      "noPhotos": "To miejsce nie posiada jeszcze zdjęć",
-      "lastUpdated": "Ostatnia aktualizacja"
-   },
    "locationPermissionError": "Nie przyznano uprawnień wykorzystania lokalizacji przez aplikację.",
    "locationPermissionErrorDescription": "Jeżeli chcesz aby funkcja działała, przejdź do ustawień telefonu i przyznaj aplikacji uprawnienia do korzystania z lokalizacji.",
    "cancel": "Anuluj",
@@ -63,5 +44,10 @@
    "lessThanKilometer": "Mniej niż 1 km od Ciebie",
    "openingHours": "Godziny otwarcia: {{hours}}",
    "phone": "Numer kontaktowy: {{number}}",
-   "website": "Strona internetowa: {{number}}"
+   "website": "Strona internetowa: {{number}}",
+   "animals": {
+      "home": "Zgłoszenia",
+      "report": "Zgłoś",
+      "addPhoto": "Dodaj zdjęcie"
+   }
 }

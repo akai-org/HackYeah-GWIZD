@@ -1,14 +1,16 @@
 import axios from 'axios';
 
-export const matchingPlacesFetcher = async ({
-   url,
-   userAnswers,
+export const animalFetcher = async ({
+   img,
+   name, 
+   description,
 }: {
-   url: string;
-   userAnswers: number[][];
+   img: string;
+   name: string;
+   description: string;
 }) => {
    return axios
-      .post(url, { answerTags: userAnswers })
+      .post('animals', { image: img, name, description })
       .then(resp => resp.data)
       .catch(err => {
          throw new Error(err);

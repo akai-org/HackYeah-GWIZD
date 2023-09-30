@@ -29,14 +29,14 @@ function Tabs() {
             tabBarIcon: ({ focused, color, size }) => {
                let iconName;
 
-               if (route.name === 'Home') {
+               if (route.name === 'Zgłoszenia') {
                   iconName = focused
                      ? 'ios-information-circle'
                      : 'ios-information-circle-outline';
-               } else if (route.name === 'Info') {
+               } else if (route.name === 'Zgłoś') {
+                  iconName = focused ? 'ios-alert-circle' : 'ios-alert-circle-outline';
+               } else if (route.name === 'Moje zgłoszenia') {
                   iconName = focused ? 'ios-list' : 'ios-list-outline';
-               } else if (route.name === 'Login') {
-                  iconName = focused ? 'ios-grid' : 'ios-grid-outline';
                } else if (route.name === 'Searching') {
                   iconName = focused ? 'ios-search' : 'ios-search-outline';
                }
@@ -52,21 +52,21 @@ function Tabs() {
          })}
       >
          <Tab.Screen
-            name="Home"
+            name="Zgłoszenia"
             component={HomeScreen}
             options={{ headerShown: false }}
          />
          <Tab.Screen
-            name="Info"
+            name="Zgłoś"
             component={InfoScreen}
             options={{ headerShown: false }}
          />
-         {/* <Tab.Screen
-            name="Searching"
-            component={<></>}
+         <Tab.Screen
+            name="Moje zgłoszenia"
+            component={HomeScreen}
             options={{ headerShown: false }}
             initialParams={{ userAnswers: [] }}
-         /> */}
+         />
       </Tab.Navigator>
    );
 }
