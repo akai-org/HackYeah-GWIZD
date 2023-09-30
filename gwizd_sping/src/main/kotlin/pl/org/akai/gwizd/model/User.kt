@@ -1,8 +1,10 @@
-package pl.org.akai.gwizd.users.model
+package pl.org.akai.gwizd.model
 
 import jakarta.persistence.*
+import lombok.Data
 import org.springframework.context.annotation.Primary
 
+@Data
 @Entity
 @Table(name = "users")
 data class User(

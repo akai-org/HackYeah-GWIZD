@@ -1,12 +1,17 @@
 package pl.org.akai.gwizd.users.controller
 
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.security.authentication.AnonymousAuthenticationToken
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.crypto.factory.PasswordEncoderFactories
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.web.bind.annotation.*
 import pl.org.akai.gwizd.config.utils.JwtTokenUtil
-import pl.org.akai.gwizd.users.model.User
+import pl.org.akai.gwizd.model.LoginRequest
+import pl.org.akai.gwizd.model.User
 import pl.org.akai.gwizd.users.service.UserService
 
 
@@ -14,16 +19,20 @@ import pl.org.akai.gwizd.users.service.UserService
 @RequestMapping("/auth")
 class AuthController @Autowired constructor(
     private val jwtTokenUtil: JwtTokenUtil,
-    private val userService: UserService
+    private val userService: UserService,
 ) {
+
+    private val logger = LoggerFactory.getLogger(AuthController::class.java)
     @PostMapping("/login")
-    fun login(@RequestParam username: String?, @RequestParam password: String?): ResponseEntity<String> {
+    fun login(@RequestBody login: LoginRequest): ResponseEntity<String> {
         val passwordEncoder: PasswordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder()
-        val user = userService.getUserByName(username!!)
-        if (user == null || !passwordEncoder.matches(password, user.password)) {
+
+        val user = userService.getUserByName(login.email)
+        if (user == null || !passwordEncoder.matches(login.password, user.password)) {
+            logger.error("User not found")
             return ResponseEntity.badRequest().build()
         }
-        val token = jwtTokenUtil.generateToken(username)
+        val token = jwtTokenUtil.generateToken(login.email)
         return ResponseEntity.ok(token)
     }
     @PostMapping("/register")
@@ -33,5 +42,9 @@ class AuthController @Autowired constructor(
         user.password = passwordEncoder.encode(user.password)
         userService.addUser(user)
         return ResponseEntity.ok(token)
+    }
+    @GetMapping("/me")
+    fun refresh(): ResponseEntity<String> {
+        return ResponseEntity.ok("OK")
     }
 }

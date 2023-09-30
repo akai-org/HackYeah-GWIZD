@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
+import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Component
@@ -49,8 +50,14 @@ class JwtTokenUtil {
 
     fun getAuthentication(token: String?): Authentication? {
         val claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).body
-        val userDetails: UserDetails = User(claims.subject, "", emptyList())
-        return UsernamePasswordAuthenticationToken(userDetails, "", userDetails.authorities)
+        val userDetails: UserDetails = User(claims.subject, token, listOf(ROLE_USER()))
+        return UsernamePasswordAuthenticationToken(userDetails, token, userDetails.authorities)
+    }
+}
+
+class ROLE_USER : GrantedAuthority {
+    override fun getAuthority(): String {
+        return "ROLE_USER"
     }
 }
 

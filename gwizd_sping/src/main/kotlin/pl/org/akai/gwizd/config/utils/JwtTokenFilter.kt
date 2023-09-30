@@ -6,6 +6,8 @@ import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.Authentication
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.context.SecurityContext
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 import org.springframework.util.StringUtils
@@ -28,7 +30,7 @@ class JwtTokenFilter @Autowired constructor(private var jwtTokenProvider: JwtTok
                 SecurityContextHolder.getContext().authentication = authentication
             }
         } catch (e: Exception) {
-            // Obsługa błędów uwierzytelniania
+            logger.error("Could not set user authentication in security context", e)
         }
         filterChain.doFilter(request, response)
     }
