@@ -1,0 +1,255 @@
+{
+   "components": {
+      "Button": {
+         "appearances": {
+            "filled": {
+               "mapping": {
+                  "textFontFamily": "heading-medium-font-family"
+               },
+               "variantGroups": {
+                  "size": {
+                     "tiny": {
+                        "textFontWeight": "normal"
+                     },
+                     "small": {
+                        "textFontWeight": "normal"
+                     },
+                     "medium": {
+                        "textFontWeight": "normal"
+                     },
+                     "large": {
+                        "textFontWeight": "normal"
+                     },
+                     "giant": {
+                        "textFontWeight": "normal"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "Input": {
+         "appearances": {
+            "default": {
+               "variantGroups": {
+                  "status": {
+                     "basic": {
+                        "backgroundColor": "background-basic-color-1",
+                        "state": {
+                           "hover": {
+                              "backgroundColor": "background-basic-color-1"
+                           }
+                        }
+                     },
+                     "danger": {
+                        "backgroundColor": "background-basic-color-1",
+                        "state": {
+                           "hover": {
+                              "backgroundColor": "background-basic-color-1"
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "BottomNavigationTab": {
+         "appearances": {
+            "default": {
+               "mapping": {
+                  "textFontFamily": "heading-medium-font-family"
+               }
+            }
+         }
+      },
+      "TabBar": {
+         "appearances": {
+            "default": {
+               "mapping": {
+                  "indicatorBorderRadius": 0
+               }
+            }
+         }
+      },
+      "Tab": {
+         "appearances": {
+            "default": {
+               "mapping": {
+                  "textMarginVertical": 10,
+                  "textFontWeight": "normal",
+                  "textFontFamily": "heading-medium-font-family"
+               }
+            }
+         }
+      },
+      "Text": {
+         "meta": {
+            "variantGroups": {
+               "category": {
+                  "medium": {
+                     "default": false
+                  },
+                  "bold": {
+                     "default": false
+                  },
+                  "heading": {
+                     "default": false
+                  },
+                  "heading-medium": {
+                     "default": false
+                  },
+                  "heading-semi-bold": {
+                     "default": false
+                  },
+                  "heading-bold": {
+                     "default": false
+                  }
+               }
+            }
+         },
+         "appearances": {
+            "default": {
+               "variantGroups": {
+                  "category": {
+                     "h4": {
+                        "fontWeight": "normal",
+                        "fontFamily": "heading-medium-font-family",
+                        "fontSize": 16
+                     },
+                     "medium": {
+                        "fontFamily": "text-medium-font-family"
+                     },
+                     "bold": {
+                        "fontFamily": "text-bold-font-family"
+                     },
+                     "heading": {
+                        "fontFamily": "heading-font-family"
+                     },
+                     "heading-medium": {
+                        "fontFamily": "heading-medium-font-family"
+                     },
+                     "heading-semi-bold": {
+                        "fontFamily": "heading-semi-bold-font-family"
+                     },
+                     "heading-bold": {
+                        "fontFamily": "heading-bold-font-family"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "Card": {
+         "appearances": {
+            "outline": {
+               "mapping": {
+                  "borderWidth": 0,
+                  "borderRadius": 25,
+                  "bodyPaddingHorizontal": 15,
+                  "bodyPaddingVertical": 15
+               }
+            }
+         }
+      },
+      "Select": {
+         "appearances": {
+            "default": {
+               "mapping": {
+                  "popoverBorderRadius": 10
+               },
+               "variantGroups": {
+                  "status": {
+                     "basic": {
+                        "backgroundColor": "background-basic-color-1",
+                        "state": {
+                           "hover": {
+                              "backgroundColor": "background-basic-color-1"
+                           }
+                        }
+                     },
+                     "success": {
+                        "backgroundColor": "#27ae60",
+                        "textColor": "#FFFFFF",
+                        "iconTintColor": "#FFFFFF",
+                        "state": {
+                           "focused": {
+                              "borderColor": "#27ae60",
+                              "backgroundColor": "#27ae60"
+                           },
+                           "hover": {
+                              "borderColor": "#27ae60",
+                              "backgroundColor": "#27ae60"
+                           },
+                           "active": {
+                              "borderColor": "#27ae60",
+                              "backgroundColor": "#27ae60"
+                           }
+                        }
+                     }
+                  },
+                  "size": {
+                     "medium": {
+                        "borderRadius": 5
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "SelectOption": {
+         "appearances": {
+            "default": {
+               "mapping": {
+                  "paddingVertical": 10
+               }
+            }
+         }
+      },
+      "Toggle": {
+         "appearances": {
+            "default": {
+               "mapping": {
+                  "iconWidth": 0,
+                  "iconHeight": 0
+               }
+            }
+         }
+      },
+      "MenuItem": {
+         "appearances": {
+            "default": {
+               "mapping": {
+                  "titleColor": "#000000",
+                  "iconTintColor": "#813531",
+                  "backgroundColor": "#f2f2f2",
+                  "titleFontSize": 14,
+                  "iconMarginHorizontal": 1
+               }
+            }
+         }
+      },
+      "ListItem": {
+         "appearances": {
+            "default": {
+               "mapping": {
+                  "state": {
+                     "active": {
+                        "backgroundColor": "#f2f2f2"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   "strict": {
+      "text-font-family": "Roboto-Regular",
+      "text-medium-font-family": "Roboto-Medium",
+      "text-bold-font-family": "Roboto-Bold",
+      "heading-font-family": "Montserrat-Regular",
+      "heading-medium-font-family": "Montserrat-Medium",
+      "heading-semi-bold-font-family": "Montserrat-SemiBold",
+      "heading-bold-font-family": "Montserrat-Bold"
+   }
+}
