@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Primary
 @Entity
 @Table(name = "users")
 data class User(
-    val name: String,
-    val password: String,
-    val url: String,
-    val email: String,
-    val age: Int
+        val name: String,
+        var password: String,
+        val url: String,
+        val email: String,
+        val age: Int
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -6,4 +6,6 @@ import pl.org.akai.gwizd.users.model.User
 
 
 @Repository
-interface UserRepository : CrudRepository<User?, Long?>
+interface UserRepository : CrudRepository<User?, Long?> {
+    fun findUserByName(name: String): User?
+}

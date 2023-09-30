@@ -8,7 +8,9 @@ import pl.org.akai.gwizd.users.repository.UserRepository
 class UserService(
     private val userRepository: UserRepository
 ) {
-    fun getAllUser() = userRepository.findAll()
+    fun getAllUser(): MutableIterable<User?> = userRepository.findAll()
 
-    fun addUser(user: User) = userRepository.save(user)
+    fun addUser(user: User): User? = userRepository.save(user)
+
+    fun getUserByName(name: String): User? = userRepository.findUserByName(name)
 }

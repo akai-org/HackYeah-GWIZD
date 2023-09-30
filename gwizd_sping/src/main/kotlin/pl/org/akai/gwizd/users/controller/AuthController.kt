@@ -2,11 +2,11 @@ package pl.org.akai.gwizd.users.controller
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.security.crypto.factory.PasswordEncoderFactories
+import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.web.bind.annotation.*
 import pl.org.akai.gwizd.config.utils.JwtTokenUtil
+import pl.org.akai.gwizd.users.model.User
 import pl.org.akai.gwizd.users.service.UserService
 
 
@@ -18,15 +18,20 @@ class AuthController @Autowired constructor(
 ) {
     @PostMapping("/login")
     fun login(@RequestParam username: String?, @RequestParam password: String?): ResponseEntity<String> {
-        // Validate username and password (e.g., against a user database)
-        // If valid, generate a JWT token and return it
+        val passwordEncoder: PasswordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder()
+        val user = userService.getUserByName(username!!)
+        if (user == null || !passwordEncoder.matches(password, user.password)) {
+            return ResponseEntity.badRequest().build()
+        }
         val token = jwtTokenUtil.generateToken(username)
         return ResponseEntity.ok(token)
     }
     @PostMapping("/register")
-    fun register(@RequestParam username: String?, @RequestParam password: String?): ResponseEntity<String> {
-        //todo create user in db
-        val token = jwtTokenUtil.generateToken(username)
+    fun register(@RequestBody user: User): ResponseEntity<String> {
+        val token = jwtTokenUtil.generateToken(user.name)
+        val passwordEncoder: PasswordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder()
+        user.password = passwordEncoder.encode(user.password)
+        userService.addUser(user)
         return ResponseEntity.ok(token)
     }
 }
