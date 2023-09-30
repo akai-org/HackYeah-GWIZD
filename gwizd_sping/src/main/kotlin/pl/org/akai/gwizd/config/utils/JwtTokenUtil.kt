@@ -24,18 +24,18 @@ class JwtTokenUtil {
         val expiryDate = Date(now.time + expiration!! * 1000)
 
         return Jwts.builder()
-            .setSubject(username)
-            .setIssuedAt(now)
-            .setExpiration(expiryDate)
-            .signWith(SignatureAlgorithm.HS512, secret)
-            .compact()
+                .setSubject(username)
+                .setIssuedAt(now)
+                .setExpiration(expiryDate)
+                .signWith(SignatureAlgorithm.HS512, secret)
+                .compact()
     }
 
     fun extractClaims(token: String?): Claims {
         return Jwts.parser()
-            .setSigningKey(secret)
-            .parseClaimsJws(token)
-            .body
+                .setSigningKey(secret)
+                .parseClaimsJws(token)
+                .body
     } // Add methods for token validation, expiration check, etc.
 
     fun validateToken(token: String?): Boolean {

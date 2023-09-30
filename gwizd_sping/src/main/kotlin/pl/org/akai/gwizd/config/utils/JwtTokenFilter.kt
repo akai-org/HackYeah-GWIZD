@@ -12,15 +12,14 @@ import org.springframework.util.StringUtils
 import org.springframework.web.filter.OncePerRequestFilter
 import java.io.IOException
 
-
 @Component
 class JwtTokenFilter @Autowired constructor(private var jwtTokenProvider: JwtTokenUtil?) : OncePerRequestFilter() {
 
     @Throws(ServletException::class, IOException::class)
     override fun doFilterInternal(
-        request: HttpServletRequest,
-        response: HttpServletResponse,
-        filterChain: FilterChain
+            request: HttpServletRequest,
+            response: HttpServletResponse,
+            filterChain: FilterChain
     ) {
         try {
             val jwt = extractJwtFromRequest(request)
@@ -41,4 +40,3 @@ class JwtTokenFilter @Autowired constructor(private var jwtTokenProvider: JwtTok
         } else null
     }
 }
-
